@@ -20,11 +20,9 @@ public class GithubSearch {
     void searchSelenide(){
         Selenide.open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
-        $("li.wiki-more-pages-link").shouldBe(visible);
         $("li.wiki-more-pages-link").$("button").click();
-        $("div#wiki-pages-box").$$("a").findBy(text("SoftAssertions")).shouldBe(visible);
         $("div#wiki-pages-box").$$("a").findBy(text("SoftAssertions")).click();
-        $$("h4").findBy(text("JUnit5")).sibling(0).$$("pre");
+        $$("h4").findBy(text("JUnit5")).sibling(0).innerHtml().contains("<pre>");
 
     }
 
